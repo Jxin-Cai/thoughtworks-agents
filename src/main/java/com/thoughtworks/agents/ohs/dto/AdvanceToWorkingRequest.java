@@ -1,0 +1,42 @@
+package com.thoughtworks.agents.ohs.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+import java.util.Map;
+
+public class AdvanceToWorkingRequest {
+
+    @NotBlank
+    private String designOutput;
+
+    @NotBlank
+    private String workingDirectory;
+
+    @NotNull
+    private Map<String, String> environmentVariables;
+
+    public String getDesignOutput() {
+        return designOutput;
+    }
+
+    public void setDesignOutput(String designOutput) {
+        this.designOutput = designOutput;
+    }
+
+    public String getWorkingDirectory() {
+        return workingDirectory;
+    }
+
+    public void setWorkingDirectory(String workingDirectory) {
+        this.workingDirectory = workingDirectory;
+    }
+
+    public Map<String, String> getEnvironmentVariables() {
+        return environmentVariables;
+    }
+
+    public void setEnvironmentVariables(Map<String, String> environmentVariables) {
+        this.environmentVariables = environmentVariables;
+    }
+}

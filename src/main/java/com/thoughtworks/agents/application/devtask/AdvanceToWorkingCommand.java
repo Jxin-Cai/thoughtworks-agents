@@ -1,0 +1,69 @@
+package com.thoughtworks.agents.application.devtask;
+
+import java.util.Map;
+
+public class AdvanceToWorkingCommand {
+
+    private final String taskId;
+    private final String designOutput;
+    private final String workingDirectory;
+    private final Map<String, String> environmentVariables;
+
+    private AdvanceToWorkingCommand(Builder builder) {
+        this.taskId = builder.taskId;
+        this.designOutput = builder.designOutput;
+        this.workingDirectory = builder.workingDirectory;
+        this.environmentVariables = builder.environmentVariables;
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public String getDesignOutput() {
+        return designOutput;
+    }
+
+    public String getWorkingDirectory() {
+        return workingDirectory;
+    }
+
+    public Map<String, String> getEnvironmentVariables() {
+        return environmentVariables;
+    }
+
+    public static class Builder {
+        private String taskId;
+        private String designOutput;
+        private String workingDirectory;
+        private Map<String, String> environmentVariables;
+
+        public Builder taskId(String taskId) {
+            this.taskId = taskId;
+            return this;
+        }
+
+        public Builder designOutput(String designOutput) {
+            this.designOutput = designOutput;
+            return this;
+        }
+
+        public Builder workingDirectory(String workingDirectory) {
+            this.workingDirectory = workingDirectory;
+            return this;
+        }
+
+        public Builder environmentVariables(Map<String, String> environmentVariables) {
+            this.environmentVariables = environmentVariables;
+            return this;
+        }
+
+        public AdvanceToWorkingCommand build() {
+            return new AdvanceToWorkingCommand(this);
+        }
+    }
+}

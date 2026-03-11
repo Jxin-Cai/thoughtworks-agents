@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: thoughtworks-agents
+  datasource:
+    url: jdbc:h2:file:./data/thoughtworks-agents;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+
+github:
+  oauth:
+    client-id: ${GITHUB_CLIENT_ID:}
+    client-secret: ${GITHUB_CLIENT_SECRET:}
+    redirect-uri: ${GITHUB_REDIRECT_URI:http://localhost:8080/api/github/callback}
+  api:
+    base-url: https://api.github.com
+    connect-timeout: 5000
+    read-timeout: 10000
