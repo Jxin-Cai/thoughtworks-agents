@@ -30,3 +30,6 @@ data/
 
 # Claude
 .claude/
+
+# ThoughtWorks design artifacts
+.thoughtworks/
